@@ -28,7 +28,7 @@ namespace CodeTest_Michelle
             thesaurus.AddSynonyms(synonyms);
             var result = thesaurus.GetSynonyms("love").ToList();
 
-            Assert.That(result.Count == 3);
+            Assert.AreEqual(result.Count, 3);
         }
 
         [Test]
@@ -40,11 +40,8 @@ namespace CodeTest_Michelle
             thesaurus.AddSynonyms(synonyms);
             thesaurus.AddSynonyms(synonyms2);
 
-            bool wordsAreUnique = thesaurus.GetWords().Distinct().Count() == thesaurus.GetWords().Count();
-            bool duplicateSynonyms = thesaurus.GetSynonyms("love").Distinct().Count() == thesaurus.GetSynonyms("love").Count();
-             
-            Assert.IsTrue(wordsAreUnique);
-            Assert.IsFalse(duplicateSynonyms);
+            Assert.AreEqual(thesaurus.GetSynonyms("love").ToList().Count(), 4);
+            Assert.AreEqual(thesaurus.GetWords().Distinct().ToList().Count(), thesaurus.GetWords().ToList().Count());
             
         }
 
