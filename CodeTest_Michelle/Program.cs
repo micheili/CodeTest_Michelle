@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CodeTest_Michelle
 {
@@ -6,11 +7,13 @@ namespace CodeTest_Michelle
     {
         static void Main(string[] args)
         {
-
             //use singleton or send Ithesaurus to programrunner
-            ProgramRunner programRunner = new();
+            Thesaurus thesaurus = new();
+            ProgramRunner programRunner = new(thesaurus);
+            programRunner.Run(); 
 
-            programRunner.Run();
+
+
         }
     }
 }

@@ -28,7 +28,7 @@ namespace CodeTest_Michelle
 
                     foreach (var synonym in synonymsList)
                     {
-                        if (!dictionary[key].Contains(synonym))
+                        if (!dictionary[key].Contains(synonym) && CheckIfWordIsAccepted(synonym))
                             dictionary[key].Add(synonym);
                     }
                 }
@@ -43,15 +43,20 @@ namespace CodeTest_Michelle
             }  
         }
 
-        public bool CheckIfWordIsAccepted(string word)
-        {
-            string wordRegex = @"^[a-zA-Z]+$";
-            return Regex.IsMatch(word, wordRegex);
-        }
+      
 
         public IEnumerable<string> GetSynonyms(string word)
         {
-            throw new System.NotImplementedException();
+            List<string> synonyms = new();
+
+            if (dictionary.ContainsKey(word))
+            {
+                foreach (var synonym in dictionary[word])
+                {
+                    synonyms.Add(synonym);
+                }
+            }
+                return synonyms;
         }
 
         public IEnumerable<string> GetWords()
@@ -61,10 +66,15 @@ namespace CodeTest_Michelle
             foreach (var word in dictionary)
             {
                 string key = word.Key;
-                List<string> values = word.Value;
-                //wordsOfDictionary.Add(key + (value => values );
+                wordsOfDictionary.Add(key);
             }
             return wordsOfDictionary;
+        }  
+        
+        public bool CheckIfWordIsAccepted(string word)
+        {
+            string wordRegex = @"^[a-zA-Z]+$";
+            return Regex.IsMatch(word, wordRegex);
         }
     }
 }
