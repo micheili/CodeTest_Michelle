@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 
 namespace CodeTest_Michelle
 {
-
     class Thesaurus : IThesaurus
     {
         public Dictionary<string, List<string>> dictionary = new();
@@ -42,8 +41,6 @@ namespace CodeTest_Michelle
                 Console.WriteLine("Incorrect input.");
             }  
         }
-
-      
 
         public IEnumerable<string> GetSynonyms(string word)
         {

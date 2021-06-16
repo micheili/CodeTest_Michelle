@@ -7,13 +7,10 @@ namespace CodeTest_Michelle
     {
         static void Main(string[] args)
         {
-            //use singleton or send Ithesaurus to programrunner
             Thesaurus thesaurus = new();
             ProgramRunner programRunner = new(thesaurus);
+
             programRunner.Run(); 
-
-
-
         }
     }
 }

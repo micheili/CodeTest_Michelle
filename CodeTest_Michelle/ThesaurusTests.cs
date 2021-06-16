@@ -42,7 +42,6 @@ namespace CodeTest_Michelle
 
             Assert.AreEqual(thesaurus.GetSynonyms("love").ToList().Count(), 4);
             Assert.AreEqual(thesaurus.GetWords().Distinct().ToList().Count(), thesaurus.GetWords().ToList().Count());
-            
         }
 
         [Test]
@@ -71,8 +70,8 @@ namespace CodeTest_Michelle
             var result = thesaurus.GetSynonyms(word);
 
             Assert.IsEmpty(result);
-
         }
+
         [Test]
         public void Test_That_Existing_Synonyms_Are_Returned()
         {
