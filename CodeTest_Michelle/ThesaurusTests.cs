@@ -34,5 +34,15 @@ namespace CodeTest_Michelle
             Assert.AreEqual(lengthOfDictionaryAfterAdd - lengthOfDictionaryAfterAdd, synonyms.Count);
         }
 
+        [Test]
+        [TestCase("Banana", ExpectedResult = true)]
+        [TestCase("Banana2", ExpectedResult = false)]
+        [TestCase("Banana ", ExpectedResult = false)]
+        [TestCase("Banana!", ExpectedResult = false)]
+        public bool Test_For_Validating_Input(string word)
+        {
+            return thesaurus.CheckIfWordIsAccepted(word);
+        }
+
     }
 }
