@@ -1,10 +1,6 @@
 ﻿using NUnit.Framework;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 
 namespace CodeTest_Michelle
@@ -32,7 +28,7 @@ namespace CodeTest_Michelle
         }
 
         [Test]
-        public void Test_For_Adding_Already_Existing_Words()
+        public void Test_For_Adding_Already_Existing_Word_And_Synonym()
         {
             List<string> synonyms = new() { "love", "affection", "devotion", "fondness" };
             List<string> synonyms2 = new() { "love", "affection", "devotion", "infatuation" };
@@ -55,7 +51,7 @@ namespace CodeTest_Michelle
         }
 
         [Test]
-        public void Test_That_Get_Word_Return_Correct_Amount() 
+        public void Test_That_Get_Word_Returns_Correct_Amount() 
         {
             var result = thesaurus.GetWords().ToList();
 
@@ -81,7 +77,6 @@ namespace CodeTest_Michelle
             thesaurus.AddSynonyms(wordAndSynonyms);
             var synonyms = wordAndSynonyms.Remove(wordAndSynonyms[0]);
             
-
             foreach(string synonym in thesaurus.GetSynonyms("love"))
             {
                 synonymResultFromWord.Add(synonym);

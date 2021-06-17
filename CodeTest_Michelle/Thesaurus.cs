@@ -12,8 +12,8 @@ namespace CodeTest_Michelle
         
         public void AddSynonyms(IEnumerable<string> synonyms)
         {
-            List<string> synonymsList = synonyms.ToList();
             string key;
+            List<string> synonymsList = synonyms.ToList();
 
             if (CheckIfWordIsAccepted(synonymsList[0]))
             {
@@ -22,9 +22,6 @@ namespace CodeTest_Michelle
 
                 if (dictionary.ContainsKey(key))
                 {
-                    //if it does, check if the other synonyms exists as values
-                    //add other synonyms if they don't
-
                     foreach (var synonym in synonymsList)
                     {
                         if (!dictionary[key].Contains(synonym) && CheckIfWordIsAccepted(synonym))
